@@ -27,7 +27,7 @@ if (!$viking) {
 echo json_encode($viking);
 */
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/MKR_TP_VIKINGS//api/dao/weapon.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/dao/weapon.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/utils/server.php';
 
 header('Content-Type: application/json');
