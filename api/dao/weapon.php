@@ -28,3 +28,14 @@ function findAllWeapons (string $type = "", int $limit = 10, int $offset = 0) {
     }
     return null;
 }
+
+function createWeapon(string $type, int $damage) {
+    $db = getDatabaseConnection();
+    $sql = "INSERT INTO weapon (type, damage) VALUES (:type, :damage)";
+    $stmt = $db->prepare($sql);
+    $res = $stmt->execute(['type' => $type, 'damage' => $damage]);
+    if ($res) {
+        return $db->lastInsertId();
+    }
+    return null;
+}
