@@ -75,3 +75,8 @@ CREATE TABLE weapon (
     type VARCHAR(16) NOT NULL,
     damage INT NOT NULL
 );
+
+ ALTER TABLE viking ADD COLUMN weaponId INT NULL;
+
+# ajout une contrainte de clé sous oqtp
+ALTER TABLE viking ADD CONSTRAINT fk_weapon FOREIGN KEY (weaponId) REFERENCES weapon(id);
