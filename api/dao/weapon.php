@@ -50,3 +50,14 @@ function updateWeapon(string $id, string $type, int $damage) {
     }
     return null;
 }
+
+function deleteWeapon(string $id) {
+    $db = getDatabaseConnection();
+    $sql = "DELETE FROM weapon WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $res = $stmt->execute(['id' => $id]);
+    if ($res) {
+        return $stmt->rowCount();
+    }
+    return null;
+}
