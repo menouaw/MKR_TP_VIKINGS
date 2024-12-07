@@ -24,11 +24,4 @@ if (validateMandatoryParams($data, ['type', 'damage'])) {
 } else {
     returnError(412, 'Mandatory parameters : type, damage');
 }
-
-/*
-exemple of a json body to send to the server:
-{
-    "type": "sword",
-    "damage": 10
-}
-*/
+?>

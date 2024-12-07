@@ -39,3 +39,14 @@ function createWeapon(string $type, int $damage) {
     }
     return null;
 }
+
+function updateWeapon(string $id, string $type, int $damage) {
+    $db = getDatabaseConnection();
+    $sql = "UPDATE weapon SET type = :type, damage = :damage WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $res = $stmt->execute(['id' => $id, 'type' => $type, 'damage' => $damage]);
+    if ($res) {
+        return $stmt->rowCount();
+    }
+    return null;
+}
