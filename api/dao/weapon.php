@@ -79,3 +79,9 @@ function findOneWeapon(string $id) {
     }
     return null;
 }
+
+findAllWeapons (string $name = "", int $limit = 10, int $offset = 0) {
+    $db = getDatabaseConnection();
+    $params = [];
+    $sql = "SELECT id, name, damage"
+}
