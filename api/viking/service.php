@@ -2,9 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/utils/server.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/dao/weapon.php';
 
-// how to define a number like: %define DEFAULT_WEAPON_ID 6:
 define('DEFAULT_WEAPON_ID', 6);
-
 
 function verifyViking($viking): bool {
     $name = trim($viking['name']);
@@ -28,15 +26,25 @@ function verifyViking($viking): bool {
     }
 
     $weapon = intval($viking['weapon']);
-    if ($weapon == 0) {
-        if (!findOneWeapon(DEFAULT_WEAPON_ID)) {
-            returnError(500, 'Default weapon not found');
-        }
-    } else {
-        if (!findOneWeapon($weapon)) {
-            returnError(412, 'Weapon not found');
-        }
+    if ($weapon < 0) {
+        returnError(412, 'Weapon must be a positive number');
     }
 
     return true;
+}
+
+function setWeapon($weapon): int {
+    if ($weapon == 0) {
+        if (!findOneWeapon(DEFAULT_WEAPON_ID)) {
+            returnError(500, 'Could not find the default weapon');
+        } else {
+            return DEFAULT_WEAPON_ID;
+        }
+    } else {
+        if (!findOneWeapon($weapon)) {
+            returnError(500, 'Could not find the weapon');
+        } else {
+            return $weapon;
+        }
+    }
 }
