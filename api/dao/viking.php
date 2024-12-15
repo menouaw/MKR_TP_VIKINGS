@@ -1,30 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/utils/database.php';
-/*
-Vikings 
-Un viking ne peut avoir qu'une seule arme au maximum, mais peut n'en avoir aucune.
- Modifier la table viking pour qu'elle ait une arme (clé étrangère weaponId vers 
-la table Weapon, peut être null).
- Ajouter les fonctionnalités CRUD pour les vikings :
- Mettre à jour les fonctionnalités Read du viking (findOne et findAll) pour qu'elles 
-retournent le détail de l'arme du viking si celui-ci en a une. L'arme doit être 
-retournée au format d'un lien vers le détail de l'arme (HATEOAS) si le viking en a 
-une (sinon renvoyer "weapon": ""). Exemple :
- Mettre à jour la fonctionnalité Create du viking pour qu'il puisse être créé avec 
-une arme par défaut si elle existe. Retourner une erreur appropriée si elle 
-n'existe pas et ne pas créer le viking.
- {
-  "id": 1,
-  "name": "Ragnar",
-  "health": 300,
-  "attack": 200,
-  "defense": 150,
-  "weapon": "/weapon/findOne.php?id=3"
- }
-Mettre à jour la fonctionnalité Update avec PUT pour mettre à jour le viking dans 
-son intégralité. Faire les vérifications appropriées pour mettre à jour l'arme si 
-elle existe, ou la supprimer si elle n'existe pas.
-*/
+
 
 function findOneViking(string $id) {
     $db = getDatabaseConnection();
