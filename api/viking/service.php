@@ -34,17 +34,15 @@ function verifyViking($viking): bool {
 }
 
 function setWeapon($weapon): int {
-    if ($weapon == 0) {
-        if (!findOneWeapon(DEFAULT_WEAPON_ID)) {
-            returnError(500, 'Could not find the default weapon');
-        } else {
-            return DEFAULT_WEAPON_ID;
-        }
-    } else {
-        if (!findOneWeapon($weapon)) {
-            returnError(500, 'Could not find the weapon');
-        } else {
-            return $weapon;
-        }
+    $weaponId = intval($weapon);
+
+    if ($weaponId == 0) {
+        $weaponId = DEFAULT_WEAPON_ID;
     }
+
+    if (!findOneWeapon($weaponId)) {
+        returnError(400, 'Weapon not found');
+    }
+
+    return $weaponId;
 }

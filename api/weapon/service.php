@@ -1,6 +1,8 @@
 <?php
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/dao/weapon.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/utils/server.php';
+
+define('DEFAULT_WEAPON_ID', 6);
 
 function verifyWeapon($weapon): bool {
     $type = trim($weapon['type']);

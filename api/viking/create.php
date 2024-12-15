@@ -14,9 +14,9 @@ $data = getBody();
 
 if (validateMandatoryParams($data, ['name', 'health', 'attack', 'defense'])) {
     verifyViking($data);
-    $weapon = setWeapon($data['weapon']);
+    $weaponId = setWeapon($data['weapon']);
 
-    $newVikingId = createViking($data['name'], $data['health'], $data['attack'], $data['defense'], $weapon);
+    $newVikingId = createViking($data['name'], $data['health'], $data['attack'], $data['defense'], $weaponId);
     if (!$newVikingId) {
         returnError(500, 'Could not create the viking');
     }

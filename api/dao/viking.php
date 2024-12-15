@@ -56,11 +56,11 @@ function findAllVikings (string $name = "", int $limit = 10, int $offset = 0) {
     return null;
 }
 
-function createViking(string $name, int $health, int $attack, int $defense) {
+function createViking(string $name, int $health, int $attack, int $defense, int $weaponId) {
     $db = getDatabaseConnection();
-    $sql = "INSERT INTO viking (name, health, attack, defense) VALUES (:name, :health, :attack, :defense)";
+    $sql = "INSERT INTO viking (name, health, attack, defense, weaponId) VALUES (:name, :health, :attack, :defense, :weaponId)";
     $stmt = $db->prepare($sql);
-    $res = $stmt->execute(['name' => $name, 'health' => $health, 'attack' => $attack, 'defense' => $defense]);
+    $res = $stmt->execute(['name' => $name, 'health' => $health, 'attack' => $attack, 'defense' => $defense, 'weaponId' => $weaponId]);
     if ($res) {
         return $db->lastInsertId();
     }
