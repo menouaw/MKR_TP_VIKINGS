@@ -67,11 +67,11 @@ function createViking(string $name, int $health, int $attack, int $defense, int 
     return null;
 }
 
-function updateViking(string $id, string $name, int $health, int $attack, int $defense) {
+function updateViking(string $id, string $name, int $health, int $attack, int $defense, int $weaponId) {
     $db = getDatabaseConnection();
-    $sql = "UPDATE viking SET name = :name, health = :health, attack = :attack, defense = :defense WHERE id = :id";
+    $sql = "UPDATE viking SET name = :name, health = :health, attack = :attack, defense = :defense, weaponId = :weaponId WHERE id = :id";
     $stmt = $db->prepare($sql);
-    $res = $stmt->execute(['id' => $id, 'name' => $name, 'health' => $health, 'attack' => $attack, 'defense' => $defense]);
+    $res = $stmt->execute(['id' => $id, 'name' => $name, 'health' => $health, 'attack' => $attack, 'defense' => $defense, 'weaponId' => $weaponId]);
     if ($res) {
         return $stmt->rowCount();
     }

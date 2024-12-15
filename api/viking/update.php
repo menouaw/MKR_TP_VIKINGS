@@ -20,8 +20,9 @@ $id = intval($_GET['id']);
 
 if (validateMandatoryParams($data, ['name', 'health', 'attack', 'defense'])) {
     verifyViking($data);
+    $weapon = setWeapon($data['weapon']);
 
-    $updated = updateViking($id, $data['name'], $data['health'], $data['attack'], $data['defense']);
+    $updated = updateViking($id, $data['name'], $data['health'], $data['attack'], $data['defense'], $weapon);
     if ($updated == 1) {
         http_response_code(204);
     } elseif ($updated == 0) {
