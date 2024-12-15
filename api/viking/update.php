@@ -23,7 +23,7 @@ if (validateMandatoryParams($data, ['name', 'health', 'attack', 'defense'])) {
     $weapon = setWeapon($data['weapon']);
 
     $updated = updateViking($id, $data['name'], $data['health'], $data['attack'], $data['defense'], $weapon);
-    if ($updated == 1) {
+    if ($updated) {
         http_response_code(204);
     } elseif ($updated == 0) {
         returnError(404, 'Viking not found');

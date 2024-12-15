@@ -73,7 +73,7 @@ function updateViking(string $id, string $name, int $health, int $attack, int $d
     $stmt = $db->prepare($sql);
     $res = $stmt->execute(['id' => $id, 'name' => $name, 'health' => $health, 'attack' => $attack, 'defense' => $defense, 'weaponId' => $weaponId]);
     if ($res) {
-        return $stmt->rowCount();
+        return $id;
     }
     return null;
 }
