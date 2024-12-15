@@ -88,3 +88,14 @@ function deleteViking(string $id) {
     }
     return null;
 }
+
+function updateVikingWeapon(string $id, int $weaponId) {
+    $db = getDatabaseConnection();
+    $sql = "UPDATE viking SET weaponId = :weaponId WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $res = $stmt->execute(['id' => $id, 'weaponId' => $weaponId]);
+    if ($res) {
+        return $id;
+    }
+    return null;
+}
