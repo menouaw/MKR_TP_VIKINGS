@@ -99,3 +99,14 @@ function updateVikingWeapon(string $id, int $weaponId) {
     }
     return null;
 }
+
+function findVikingsByWeapon(string $weaponId) {
+    $db = getDatabaseConnection();
+    $sql = "SELECT id, name, health, attack, defense FROM viking WHERE weaponId = :weaponId";
+    $stmt = $db->prepare($sql);
+    $res = $stmt->execute(['weaponId' => $weaponId]);
+    if ($res) {
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    return null;
+}
