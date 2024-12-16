@@ -57,6 +57,18 @@ function deleteWeapon(string $id) {
     $stmt = $db->prepare($sql);
     $res = $stmt->execute(['id' => $id]);
     if ($res) {
+        echo $stmt->rowCount();
+        return $stmt->rowCount();
+    }
+    return null;
+}
+
+function deleteWeaponsOwners(string $id) {
+    $db = getDatabaseConnection();
+    $sql = "DELETE FROM viking WHERE weaponId = :id";
+    $stmt = $db->prepare($sql);
+    $res = $stmt->execute(['id' => $id]);
+    if ($res) {
         return $stmt->rowCount();
     }
     return null;

@@ -9,7 +9,9 @@ if (!methodIsAllowed('delete')) {
     return;
 }
 
+
 if (isset($_GET['id'])) {
+    deleteWeaponsOwners($_GET['id']);
     $deleted = deleteWeapon($_GET['id']);
     if ($deleted == 1) {
         http_response_code(204);
