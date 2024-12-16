@@ -1,18 +1,4 @@
 <?php
-/*
-Créer une nouvelle fonctionnalité Update dans le fichier 
-api/viking/addWeapon.php du viking pour lui ajouter une arme si elle existe. 
-Retourner une erreur appropriée si elle n'existe pas et ne pas mettre à jour le 
-viking. Faire les vérifications appropriées pour correspondre aux contraintes 
-d'appel suivantes :
- PATCH api/viking/addWeapon.php?id=<vikingId>
- Body :
- {
- "weaponId": 3
- }
- Attention : la nouvelle fonctionnalité d'Update ne doit mettre à jour que le champ 
-WeaponId du viking, et ne doit pas mettre à jour les autres champs du viking.
-*/
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/dao/viking.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/utils/server.php';
