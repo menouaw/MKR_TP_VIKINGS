@@ -1,8 +1,5 @@
 <?php
-/*
-Retourne tous les vikings avec l'arme demandée
- sous forme HATEOAS (nom + lien).
-*/
+
 require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/dao/viking.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/dao/weapon.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/MKR_TP_VIKINGS/api/utils/server.php';
