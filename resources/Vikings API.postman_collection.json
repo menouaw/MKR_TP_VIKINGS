@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "1d1ec78b-cb4e-4f95-93f0-f3d704331f09",
+		"name": "Vikings API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38901423",
+		"_collection_link": "https://mkr555.postman.co/workspace/c8d523b0-da2f-4d84-93f0-68a7ecfc40dd/collection/38901423-1d1ec78b-cb4e-4f95-93f0-f3d704331f09?action=share&source=collection_link&creator=38901423"
+	},
+	"item": [
+		{
+			"name": "Viking",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Kratosa\",\n    \"attack\": 390,\n    \"health\": 80,\n    \"defense\": 180,\n    \"weapon\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{HOST}}/viking/create.php"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Kratoss\",\n    \"attack\": 350,\n    \"health\": 100,\n    \"defense\": 200,\n    \"weaponId\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/viking/update.php?id=3&token={{token}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"viking",
+								"update.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/viking/findOne.php?id=2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"viking",
+								"findOne.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/viking/find.php?limit=10",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"viking",
+								"find.php"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddWeapon",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"weaponId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/viking/addWeapon.php?id=2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"viking",
+								"addWeapon.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByWeapon",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/viking/findByWeapon.php?weapon=6",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"viking",
+								"findByWeapon.php"
+							],
+							"query": [
+								{
+									"key": "weapon",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Weapon",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"axe\",\n    \"damage\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{HOST}}/weapon/create.php"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"sword\",\n    \"damage\": 30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/weapon/update.php?id=3",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"weapon",
+								"update.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/weapon/findOne.php?id=1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"weapon",
+								"findOne.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/weapon/find.php?limit=10",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"weapon",
+								"find.php"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/weapon/delete.php?id=4",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"weapon",
+								"delete.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
